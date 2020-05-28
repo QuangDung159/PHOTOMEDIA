@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- photography_slider_area_start -->
-    <AlbumSliderComp></AlbumSliderComp>
+    <!-- <AlbumSliderComp></AlbumSliderComp> -->
     <!-- photography_slider_area_end -->
 
     <!-- most_recent_blog_start -->
@@ -13,32 +13,26 @@
               <h3>Most Recent</h3>
             </div>
           </div>
-          <RecentBlogComp></RecentBlogComp>
+          <RecentPostComp></RecentPostComp>
           <FollowComp></FollowComp>
         </div>
       </div>
     </div>
     <!-- most_recent_blog_end -->
-
-    <!-- photo_gallery_start -->
-    <PhotoGalleryComp></PhotoGalleryComp>
-    <!-- photo_gallery_end -->
   </div>
 </template>
 
 <script>
 import FollowComp from "./FollowComp";
-import AlbumSliderComp from "./AlbumSliderComp";
-import RecentBlogComp from "./RecentBlogComp";
-import PhotoGalleryComp from "./PhotoGalleryComp";
+// import AlbumSliderComp from "./AlbumSliderComp";
+import RecentPostComp from "./RecentPostComp";
 
 export default {
-  name: "ListBlogComp",
+  name: "ListPostComp",
   components: {
     FollowComp,
-    AlbumSliderComp,
-    RecentBlogComp,
-    PhotoGalleryComp
+    // AlbumSliderComp,
+    RecentPostComp
   }
 };
 </script>

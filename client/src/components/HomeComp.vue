@@ -67,17 +67,17 @@
     </div>
     <!-- photographi_area_end -->
 
-    <ListBlogComp></ListBlogComp>
+    <ListPostComp></ListPostComp>
   </div>
 </template>
 
 <script>
-import ListBlogComp from "./ListBlogComp";
+import ListPostComp from "./ListPostComp";
 
 export default {
   name: "HomeComp",
   components: {
-    ListBlogComp
+    ListPostComp
   }
 };
 </script>

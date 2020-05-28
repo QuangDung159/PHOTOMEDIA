@@ -57,7 +57,7 @@
                     </li>
                     <li>
                       <a href="google.com">
-                        Blogs
+                        Posts
                         <i class="ti-angle-down"></i>
                       </a>
                       <ul class="submenu">

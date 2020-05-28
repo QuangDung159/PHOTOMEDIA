@@ -1,5 +1,5 @@
 import HomeComp from "./components/HomeComp.vue";
-import ListBlogComp from "./components/ListBlogComp.vue";
+import ListPostComp from "./components/ListPostComp.vue";
 
 const routes = [
     {
@@ -8,7 +8,7 @@ const routes = [
     },
     {
         path: "/blogs",
-        component: ListBlogComp
+        component: ListPostComp
     }
 ];
 

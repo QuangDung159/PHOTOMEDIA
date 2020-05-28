@@ -4,40 +4,16 @@
       <div class="row">
         <div class="col-xl-12">
           <div class="photoslider_active owl-carousel">
-            <div class="single_photography">
+            <div class="single_photography" v-for="(album, key) in listAlbum" :key="key">
               <img src="client/img/photography/single-1.jpg" alt />
               <div class="photo_title">
-                <h4>Photography</h4>
+                <h4>{{album.album_name}}</h4>
               </div>
             </div>
             <div class="single_photography">
               <img src="client/img/photography/single-2.jpg" alt />
               <div class="photo_title">
-                <h4>Travel Shot</h4>
-              </div>
-            </div>
-            <div class="single_photography">
-              <img src="client/img/photography/single-3.jpg" alt />
-              <div class="photo_title">
-                <h4>Photoshop</h4>
-              </div>
-            </div>
-            <div class="single_photography">
-              <img src="client/img/photography/single-4.jpg" alt />
-              <div class="photo_title">
-                <h4>Lens</h4>
-              </div>
-            </div>
-            <div class="single_photography">
-              <img src="client/img/photography/single-1.jpg" alt />
-              <div class="photo_title">
-                <h4>Photography</h4>
-              </div>
-            </div>
-            <div class="single_photography">
-              <img src="client/img/photography/single-2.jpg" alt />
-              <div class="photo_title">
-                <h4>Travel Shot</h4>
+                <h4>Travel</h4>
               </div>
             </div>
           </div>
@@ -48,8 +24,45 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
-  name: "AlbumSliderComp"
+  name: "AlbumSliderComp",
+  data() {
+    return {
+      listAlbum: []
+    };
+  },
+  mounted() {
+    this.getAlbumSliderFromApi();
+  },
+  methods: {
+    getAlbumSliderFromApi() {
+      axios
+        .get(this.appConfig.API_URL + "/get-album-slider")
+        .then(res => {
+          let data = res.data;
+          if (data.statusCode == 200) {
+            this.listAlbum = data.listAlbum;
+          } else {
+            console.log(data.msg);
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  },
+  props: {
+    appConfig: {
+      type: Object,
+      default: () => {
+        return {
+          API_URL: "http://localhost:8000/api/client"
+        };
+      }
+    }
+  }
 };
 </script>
 
