@@ -11,7 +11,10 @@
           <div class="blog_meta">
             <p>
               <router-link :to="'/posts-by-album/' + post.album_id">{{post.album_name}}</router-link>
+              <br />
+              {{post.post_created_at | formatDate}}
             </p>
+
             <h3>
               <router-link :to="'/single-post/' + post.post_id">{{post.post_title}}</router-link>
             </h3>
@@ -29,6 +32,7 @@
 
 <script>
 import axios from "axios";
+import moment from "moment";
 
 export default {
   name: "RecentPostComp",
@@ -65,6 +69,11 @@ export default {
           API_URL: "http://localhost:8000/api/client"
         };
       }
+    }
+  },
+  filters: {
+    formatDate(value) {
+      return moment.unix(value).format("LL");
     }
   }
 };

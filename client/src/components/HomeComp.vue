@@ -23,7 +23,7 @@
     <!-- welcome_protomedia_end -->
 
     <!-- photographi_area_start -->
-    <div class="photographi_area">
+    <!-- <div class="photographi_area">
       <div class="container">
         <div class="row">
           <div class="col-xl-6 col-md-6">
@@ -64,7 +64,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- photographi_area_end -->
 
     <ListPostComp></ListPostComp>

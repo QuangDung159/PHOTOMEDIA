@@ -1,5 +1,6 @@
 import HomeComp from "./components/HomeComp.vue";
 import ListPostComp from "./components/ListPostComp.vue";
+import SinglePostComp from './components/SinglePostComp.vue';
 
 const routes = [
     {
@@ -9,6 +10,10 @@ const routes = [
     {
         path: "/blogs",
         component: ListPostComp
+    },
+    {
+        path: "/single-post/:postId",
+        component: SinglePostComp
     }
 ];
 

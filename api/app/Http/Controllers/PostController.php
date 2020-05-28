@@ -21,4 +21,27 @@ class PostController extends Controller
             ];
         }
     }
+
+    public function getPostById($postId)
+    {
+        if (empty($postId)) {
+            return [
+                'statusCode' => 500,
+                'msg' => 'not found',
+            ];
+        }
+
+        $post = Post::getPostById($postId);
+        if ($post) {
+            return [
+                'statusCode' => 200,
+                'post' => $post,
+            ];
+        } else {
+            return [
+                'statusCode' => 500,
+                'msg' => 'not found',
+            ];
+        }
+    }
 }

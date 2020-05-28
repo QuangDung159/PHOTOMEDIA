@@ -32,16 +32,6 @@
                 </a>
               </div>
             </div>
-            <div class="col-xl-4 col-md-4 d-none d-md-block">
-              <div class="login_resiter">
-                <p>
-                  <a href="#">
-                    <i class="flaticon-user"></i>login
-                  </a> |
-                  <a href="#">Resister</a>
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -53,27 +43,26 @@
                 <nav>
                   <ul id="navigation">
                     <li>
-                      <a class="active" href="index.html">Home</a>
+                      <router-link :to="'/'" :class="{active: $route.path == '/'}">Home</router-link>
                     </li>
                     <li>
-                      <a href="google.com">
+                      <router-link :to="'/all-posts'" :class="{active: $route.path == '/all-posts'}">
                         Posts
                         <i class="ti-angle-down"></i>
-                      </a>
+                      </router-link>
                       <ul class="submenu">
-                        <li>
-                          <a href="elements.html">elements</a>
-                        </li>
-                        <li>
-                          <a href="single-blog.html">single-blog</a>
+                        <li v-for="(album, key) in listAlbum" :key="key">
+                          <router-link
+                            :to="'/posts-by-album/' + album.album_id"
+                          >{{album.album_name}}</router-link>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <a href="about.html">About</a>
+                      <router-link :to="'/about'">About</router-link>
                     </li>
                     <li>
-                      <a href="contact.html">Contact</a>
+                      <router-link :to="'/contact'">Contact</router-link>
                     </li>
                   </ul>
                 </nav>
@@ -90,8 +79,44 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
-  name: "HeaderComp"
+  name: "HeaderComp",
+  data() {
+    return {
+      listAlbum: []
+    };
+  },
+  mounted() {
+    this.getAlbumSliderFromApi();
+  },
+  methods: {
+    getAlbumSliderFromApi() {
+      axios
+        .get(this.appConfig.API_URL + "/get-album-slider")
+        .then(res => {
+          let data = res.data;
+          if (data.statusCode == 200) {
+            this.listAlbum = data.listAlbum;
+          } else {
+            console.log(data.msg);
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  },
+  props: {
+    appConfig: {
+      type: Object,
+      default: () => {
+        return {
+          API_URL: "http://localhost:8000/api/client"
+        };
+      }
+    }
+  }
 };
 </script>
 
