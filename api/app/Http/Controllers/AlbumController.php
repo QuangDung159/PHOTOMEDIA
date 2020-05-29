@@ -41,4 +41,27 @@ class AlbumController extends Controller
         }
         return $listAlbumResult;
     }
+
+    public function getAlbumById($albumId)
+    {
+        if (empty($albumId)) {
+            return [
+                'statusCode' => 500,
+                'msg' => 'not found',
+            ];
+        }
+
+        $album = Album::getAlbumById($albumId);
+        if ($album) {
+            return [
+                'statusCode' => 200,
+                'album' => $album,
+            ];
+        } else {
+            return [
+                'statusCode' => 500,
+                'msg' => 'not found',
+            ];
+        }
+    }
 }

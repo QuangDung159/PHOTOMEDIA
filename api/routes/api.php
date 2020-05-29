@@ -24,4 +24,5 @@ Route::group(['prefix' => '/client'], function () {
     Route::get('/get-album-slider', Constant::CONTROLLER_ALBUM . 'getAlbumSlider');
     Route::get('/get-post-by-id/{postId}', Constant::CONTROLLER_POST . 'getPostById');
     Route::get('/get-post-by-album-id/{albumId}', Constant::CONTROLLER_POST . 'getPostByAlbum');
+    Route::get('/get-album-by-id/{albumId}', COnstant::CONTROLLER_ALBUM . 'getAlbumById');
 });

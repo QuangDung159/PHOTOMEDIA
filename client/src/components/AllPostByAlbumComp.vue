@@ -41,7 +41,6 @@ export default {
   },
   methods: {
     getMostRecentFromApi() {
-      console.log(this.albumId);
       axios
         .get(this.appConfig.API_URL + "/get-post-by-album-id/" + this.albumId)
         .then(res => {
