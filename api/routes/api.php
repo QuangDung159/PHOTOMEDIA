@@ -23,4 +23,5 @@ Route::group(['prefix' => '/client'], function () {
     Route::get('/get-most-recent', Constant::CONTROLLER_POST . 'getMostRecent');
     Route::get('/get-album-slider', Constant::CONTROLLER_ALBUM . 'getAlbumSlider');
     Route::get('/get-post-by-id/{postId}', Constant::CONTROLLER_POST . 'getPostById');
+    Route::get('/get-post-by-album-id/{albumId}', Constant::CONTROLLER_POST . 'getPostByAlbum');
 });

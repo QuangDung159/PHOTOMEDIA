@@ -44,4 +44,27 @@ class PostController extends Controller
             ];
         }
     }
+
+    public function getPostByAlbum($albumId)
+    {
+        if (empty($albumId)) {
+            return [
+                'statusCode' => 500,
+                'msg' => 'not found',
+            ];
+        }
+
+        $listPost = Post::getListPostByAlbum($albumId);
+        if (count($listPost) != 0) {
+            return [
+                'statusCode' => 200,
+                'listPost' => $listPost,
+            ];
+        } else {
+            return [
+                'statusCode' => 500,
+                'msg' => 'not found',
+            ];
+        }
+    }
 }
