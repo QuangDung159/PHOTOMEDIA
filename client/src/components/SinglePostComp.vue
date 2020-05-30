@@ -305,6 +305,7 @@
 <script>
 import axios from "axios";
 import moment from "moment";
+import $ from "jquery";
 
 export default {
   name: "SinglePostComp",
@@ -320,6 +321,7 @@ export default {
     this.getPostById();
     this.getListAlbum();
     this.getMostRecentFromApi();
+    $("img").removeClass("img-fluid");
   },
   methods: {
     getPostById() {
