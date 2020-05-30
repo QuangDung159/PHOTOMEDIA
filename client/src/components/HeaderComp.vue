@@ -46,7 +46,10 @@
                       <router-link :to="'/'" :class="{active: $route.path == '/'}">Home</router-link>
                     </li>
                     <li>
-                      <router-link :to="'/all-posts'" :class="{active: $route.path == '/all-posts'}">
+                      <router-link
+                        :to="'/posts-by-album/0'"
+                        :class="{active: $route.path == '/all-posts'}"
+                      >
                         Posts
                         <i class="ti-angle-down"></i>
                       </router-link>

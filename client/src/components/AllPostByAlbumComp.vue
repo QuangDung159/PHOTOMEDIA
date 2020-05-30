@@ -37,12 +37,32 @@ export default {
     };
   },
   mounted() {
-    this.getMostRecentFromApi();
+    if (this.albumId == 0) {
+      this.getAllPostFromApi();
+    } else {
+      this.getListPostByAlbumFromApi();
+    }
   },
   methods: {
-    getMostRecentFromApi() {
+    getListPostByAlbumFromApi() {
       axios
         .get(this.appConfig.API_URL + "/get-post-by-album-id/" + this.albumId)
+        .then(res => {
+          let data = res.data;
+          if (data.statusCode == 200) {
+            this.listPost = data.listPost;
+          } else {
+            console.log(res);
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+
+    getAllPostFromApi() {
+      axios
+        .get(this.appConfig.API_URL + "/get-all-post/")
         .then(res => {
           let data = res.data;
           if (data.statusCode == 200) {
@@ -68,6 +88,15 @@ export default {
     albumId: {
       type: [Number, String],
       default: 0
+    }
+  },
+  watch: {
+    $route() {
+      if (this.albumId == 0) {
+        this.getAllPostFromApi();
+      } else {
+        this.getListPostByAlbumFromApi();
+      }
     }
   },
   filters: {

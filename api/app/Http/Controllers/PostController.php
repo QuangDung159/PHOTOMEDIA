@@ -67,4 +67,20 @@ class PostController extends Controller
             ];
         }
     }
+
+    public function getAllPost()
+    {
+        $listPost = Post::getAllPost();
+        if (count($listPost) != 0) {
+            return [
+                'statusCode' => 200,
+                'listPost' => $listPost,
+            ];
+        } else {
+            return [
+                'statusCode' => 500,
+                'msg' => 'not found',
+            ];
+        }
+    }
 }

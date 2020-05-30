@@ -4,7 +4,8 @@
       <div class="row">
         <div class="col-xl-12">
           <div class="section_title mb-33">
-            <h3>{{album.album_name}}</h3>
+            <h3 v-if="albumId != 0">{{album.album_name}}</h3>
+            <h3 v-else>All Posts</h3>
           </div>
         </div>
         <AllPostByAlbumComp :albumId="albumId"></AllPostByAlbumComp>
@@ -28,7 +29,9 @@ export default {
     };
   },
   mounted() {
-    this.getAlbumById();
+    if (this.albumId != 0) {
+      this.getAlbumById();
+    }
   },
   components: {
     FollowComp,
@@ -58,6 +61,14 @@ export default {
         return {
           API_URL: "http://localhost:8000/api/client"
         };
+      }
+    }
+  },
+  watch: {
+    $route(to) {
+      this.albumId = to.params.albumId;
+      if (this.albumId != 0) {
+        this.getAlbumById();
       }
     }
   }
