@@ -26,4 +26,6 @@ Route::group(['prefix' => '/client'], function () {
     Route::get('/get-post-by-album-id/{albumId}', Constant::CONTROLLER_POST . 'getPostByAlbum');
     Route::get('/get-album-by-id/{albumId}', COnstant::CONTROLLER_ALBUM . 'getAlbumById');
     Route::get('/get-all-post', Constant::CONTROLLER_POST . 'getAllPost');
+    Route::get('/get-comment-by-post/{postId}', Constant::CONTROLLER_COMMENT . 'getCommentByPost');
+    Route::post('/send-comment', Constant::CONTROLLER_COMMENT . 'sendComment');
 });

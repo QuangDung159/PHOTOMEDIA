@@ -36,6 +36,7 @@ class Post extends Model
                 Constant::TABLE_POST . '.post_created_at',
                 'desc'
             )
+            ->limit(6)
             ->get();
     }
 

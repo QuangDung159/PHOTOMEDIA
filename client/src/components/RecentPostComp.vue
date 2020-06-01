@@ -23,7 +23,7 @@
       </div>
       <div class="col-xl-12">
         <div class="btn_area text-center">
-          <router-link :to="'/all-posts'" class="boxed-btn">Load More</router-link>
+          <router-link :to="'/posts-by-album/0'" class="boxed-btn">Load More</router-link>
         </div>
       </div>
     </div>

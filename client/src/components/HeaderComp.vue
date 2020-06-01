@@ -8,18 +8,17 @@
               <div class="header_links">
                 <ul>
                   <li>
-                    <a href="#">
+                    <a href="https://www.facebook.com/dung.luquang" target="blank">
                       <i class="fa fa-facebook"></i>
                     </a>
                   </li>
                   <li>
-                    <a class="twiter" href="#">
-                      <i class="fa fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="insta" href="#">
-                      <i class="fa fa-instagram"></i>
+                    <a
+                      class="insta"
+                      href="https://www.youtube.com/channel/UCZhiXSiz4ZYafLml3uDU6uA?view_as=subscriber"
+                      target="blank"
+                    >
+                      <i class="fa fa-youtube"></i>
                     </a>
                   </li>
                 </ul>
